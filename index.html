@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varaa aikasi – huikkoonails</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      font-style: italic;
+      color: #000;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff99cc;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff66aa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Varaa aikasi – huikkoonails</h1>
+    <form method="POST" action="tallenna.php" onsubmit="return validateDate();">
+      <label for="service">Palvelu</label>
+      <select name="service" required>
+        <option value="">Valitse palvelu</option>
+        <option value="Uudet kynnet - S">Uudet kynnet – koko S</option>
+        <option value="Uudet kynnet - M">Uudet kynnet – koko M</option>
+        <option value="Uudet kynnet - L">Uudet kynnet – koko L</option>
+        <option value="Uudet kynnet - XL">Uudet kynnet – koko XL</option>
+        <option value="Huolto - S-M">Huolto – koko S-M</option>
+        <option value="Huolto - L-XL">Huolto – koko L-XL</option>
+      </select>
+
+      <label for="date">Päivämäärä</label>
+      <input type="date" name="date" id="date" required>
+
+      <label for="time">Kellonaika</label>
+      <input type="time" name="time" required>
+
+      <label for="name">Nimi</label>
+      <input type="text" name="name" required>
+
+      <label for="email">Sähköposti</label>
+      <input type="email" name="email" required>
+
+      <label for="phone">Puhelinnumero</label>
+      <input type="tel" name="phone" required>
+
+      <button type="submit">Lähetä varaus</button>
+    </form>
+  </div>
+  <script>
+    function validateDate() {
+      const dateInput = document.getElementById("date");
+      const selectedDate = new Date(dateInput.value);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const minDate = new Date(today);
+      minDate.setDate(minDate.getDate() + 2);
+      if (selectedDate < minDate) {
+        alert("Varaus on tehtävä vähintään 48 tuntia ennen ajankohtaa.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
