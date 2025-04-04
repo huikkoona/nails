@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ehdota aikaa – huikkoonails</title>
+  <title>Varaa aikasi – huikkoonails</title>
   <style>
     body {
       background-color: #ffe6f0;
@@ -61,8 +61,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>Varaa aikasi – huikkoonails</h1>
+    <h1>Ehdota aikaa – huikkoonails</h1>
+    <p style="text-align: center; font-size: 14px; color: #555; margin-top: -10px;">Valitsemasi aika ei ole lopullinen varaus, saat vielä vahvistuksen sähköpostiin.</p>
     <form action="https://formspree.io/f/xnnpgwwn" method="POST" onsubmit="return validateDate();">
+      <input type="hidden" name="_redirect" value="https://huikkoona.github.io/nails/kiitos.html">
       <label for="service">Palvelu</label>
       <select name="Palvelu" required>
         <option value="">Valitse palvelu</option>
