@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varaa aikasi – huikkoonails</title>
+  <title>Ehdota aikaa – huikkoonails</title>
   <style>
     body {
       background-color: #ffe6f0;
@@ -26,6 +26,14 @@
       text-align: center;
       font-style: italic;
       color: #000;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: -10px;
+      margin-bottom: 20px;
     }
 
     label {
@@ -62,7 +70,7 @@
 <body>
   <div class="container">
     <h1>Ehdota aikaa – huikkoonails</h1>
-    <p style="text-align: center; font-size: 14px; color: #555; margin-top: -10px;">Valitsemasi aika ei ole lopullinen varaus, saat vielä vahvistuksen sähköpostiin.</p>
+    <p class="subtitle">Valitsemasi aika ei ole lopullinen varaus, saat vielä vahvistuksen sähköpostiin.</p>
     <form action="https://formspree.io/f/xnnpgwwn" method="POST" onsubmit="return validateDate();">
       <input type="hidden" name="_redirect" value="https://huikkoona.github.io/nails/kiitos.html">
       <label for="service">Palvelu</label>
@@ -93,9 +101,6 @@
 
       <button type="submit">Lähetä varaus</button>
     </form>
-    <div id="successMessage" style="display:none; margin-top: 20px; padding: 15px; background-color: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
-      Kiitos varauksestasi! 💅 Saat vahvistuksen sähköpostiisi pian.
-    </div>
   </div>
 
   <script>
@@ -113,6 +118,6 @@
       }
       return true;
     }
-  </script> <!-- korjaus alla -->
+  </script>
 </body>
 </html>
