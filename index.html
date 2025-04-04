@@ -12,6 +12,7 @@
       margin: 0;
       padding: 0;
     }
+
     .container {
       max-width: 500px;
       margin: 50px auto;
@@ -20,15 +21,18 @@
       border-radius: 16px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     h1 {
       text-align: center;
       font-style: italic;
       color: #000;
     }
+
     label {
       display: block;
       margin-top: 15px;
     }
+
     input, select, textarea {
       width: 100%;
       padding: 10px;
@@ -37,6 +41,7 @@
       border: 1px solid #ccc;
       font-size: 14px;
     }
+
     button {
       width: 100%;
       padding: 12px;
@@ -48,6 +53,7 @@
       margin-top: 20px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #ff66aa;
     }
@@ -56,9 +62,9 @@
 <body>
   <div class="container">
     <h1>Varaa aikasi – huikkoonails</h1>
-    <form method="POST" action="tallenna.php" onsubmit="return validateDate();">
+    <form action="https://formspree.io/f/xnnpgwwn" method="POST" onsubmit="return validateDate();">
       <label for="service">Palvelu</label>
-      <select name="service" required>
+      <select name="Palvelu" required>
         <option value="">Valitse palvelu</option>
         <option value="Uudet kynnet - S">Uudet kynnet – koko S</option>
         <option value="Uudet kynnet - M">Uudet kynnet – koko M</option>
@@ -69,23 +75,27 @@
       </select>
 
       <label for="date">Päivämäärä</label>
-      <input type="date" name="date" id="date" required>
+      <input type="date" name="Päivämäärä" id="date" required>
 
       <label for="time">Kellonaika</label>
-      <input type="time" name="time" required>
+      <input type="time" name="Kellonaika" required>
 
       <label for="name">Nimi</label>
-      <input type="text" name="name" required>
+      <input type="text" name="Nimi" required>
 
       <label for="email">Sähköposti</label>
-      <input type="email" name="email" required>
+      <input type="email" name="Sähköposti" required>
 
       <label for="phone">Puhelinnumero</label>
-      <input type="tel" name="phone" required>
+      <input type="tel" name="Puhelin" required>
 
       <button type="submit">Lähetä varaus</button>
     </form>
+    <div id="successMessage" style="display:none; margin-top: 20px; padding: 15px; background-color: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+      Kiitos varauksestasi! 💅 Saat vahvistuksen sähköpostiisi pian.
+    </div>
   </div>
+
   <script>
     function validateDate() {
       const dateInput = document.getElementById("date");
@@ -94,12 +104,13 @@
       today.setHours(0, 0, 0, 0);
       const minDate = new Date(today);
       minDate.setDate(minDate.getDate() + 2);
+
       if (selectedDate < minDate) {
         alert("Varaus on tehtävä vähintään 48 tuntia ennen ajankohtaa.");
         return false;
       }
       return true;
     }
-  </script>
+  </script> <!-- korjaus alla -->
 </body>
 </html>
